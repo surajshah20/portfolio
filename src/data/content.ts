@@ -91,7 +91,7 @@ export const projects: Project[] = [
       "React.js frontend with protected routes and a live dashboard",
       "Input validation and documented API contracts",
     ],
-    links: { github: "https://github.com/surajshah20" },
+    links: { github: "https://github.com/surajshah20/primetrade-backend" },
     accent: "#5CE7FF",
   },
   {
@@ -108,7 +108,7 @@ export const projects: Project[] = [
       "No account or password required for customers",
       "Password-protected admin dashboard for inquiry analytics",
     ],
-    links: { github: "https://github.com/surajshah20" },
+    links: { github: "https://github.com/surajshah20/ai-solutions" },
     accent: "#FF9E5E",
   },
   {
@@ -125,7 +125,7 @@ export const projects: Project[] = [
       "User dashboard for managing bookings",
       "Integrated payment flow",
     ],
-    links: { github: "https://github.com/surajshah20" },
+    links: { demo: "https://explorehimalaya.vercel.app", github: "https://github.com/surajshah20/explorehimalaya" },
     accent: "#34D2F2",
   },
   {
