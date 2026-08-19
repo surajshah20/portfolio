@@ -79,6 +79,7 @@ export const skills: SkillCategory[] = [
     ],  
   },  
 ];
+
 export type Project = {  
   slug: string;  
   title: string;  
@@ -142,21 +143,42 @@ export const projects: Project[] = [
     accent: "#34D2F2",  
   },  
   {  
-    slug: "secure-auth",  
-    title: "Secure Authentication System",  
-    tagline: "Authentication Engine",  
+    slug: "ai-solutions",  
+    title: "AI-Solutions",  
+    tagline: "AI Startup Platform & CMS",  
     description:  
-      "A standalone, secure authentication flow including password hashing, Google OAuth, sessions, and protected routes.",  
+      "A full-stack capstone project featuring a custom content management system, secure lead-generation, and an integrated AI-powered virtual assistant.",  
     status: "Completed",  
-    tech: ["Node.js", "Express", "PostgreSQL", "bcrypt", "Passport.js"],  
+    tech: ["Node.js", "Express", "PostgreSQL", "EJS", "bcrypt"],  
     features: [  
-      "bcrypt password hashing and session management",  
-      "Google OAuth integration",  
-      "Implementation of protected backend routes",  
+      "Secure admin CMS with full CRUD capabilities and session authentication",  
+      "Responsive EJS templates for public pages and data-driven dashboards",  
+      "Robust PostgreSQL schema handling inquiries, articles, and events",  
+      "System reliability validated via 58 documented test cases",  
     ],  
-    links: { github: "https://github.com/surajshah20" },  
-    accent: "#7C5CFF",  
-  },  
+    links: { github: "https://github.com/surajshah20/ai-solutions" },  
+    accent: "#FF9E5E",  
+  },
+  {
+    slug: "finance-dashboard",
+    title: "Ledger Dashboard",
+    tagline: "Interactive Finance Tracker",
+    description:
+      "A responsive personal finance dashboard featuring dynamic data visualization, simulated role-based access control, and centralized state management.",
+    status: "Completed",
+    tech: ["JavaScript", "HTML5", "CSS3", "Chart.js"],
+    features: [
+      "Engineered centralized state management using Vanilla JS and localStorage",
+      "Integrated Chart.js for real-time balance trends and expense distribution",
+      "Implemented role-based UI toggling (Admin/Viewer) with custom themed components",
+      "Built a fully responsive layout with seamless dark/light mode switching",
+    ],
+    links: { 
+      demo: "https://finance-dashboardui.netlify.app/",
+      github: "https://github.com/surajshah20/finance-dashboard"
+    },
+    accent: "#7C5CFF",
+  }
 ];
 
 export const timeline = [  
