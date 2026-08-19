@@ -11,7 +11,17 @@ export const profile = {
     "Final-year BSc IT student and full-stack developer with hands-on experience building React, Node.js, and PostgreSQL applications. I am comfortable working across the frontend and backend, debugging complex application issues, and shipping full-stack projects end to end.",  
 };
 
-export const skills = [  
+export type SkillCategory = {
+  category: string;
+  color: string;
+  items: {
+    name: string;
+    level: number;
+    note?: string; 
+  }[];
+};
+
+export const skills: SkillCategory[] = [  
   {  
     category: "Frontend",  
     color: "#FF9E5E",  
@@ -69,7 +79,6 @@ export const skills = [
     ],  
   },  
 ];
-
 export type Project = {  
   slug: string;  
   title: string;  
