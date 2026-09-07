@@ -10,31 +10,33 @@ export default function HoloName() {
 
   useFrame((state) => {
     if (!groupRef.current) return;
-    groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.25) * 0.18;
+    // Slightly faster, sharper sine wave to match the technical grid environment
+    groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.3) * 0.15;
   });
 
   return (
-    <Float speed={1.4} rotationIntensity={0.15} floatIntensity={0.6}>
-      <group ref={groupRef} position={[0, 1.6, -1]}>
+    <Float speed={1.8} rotationIntensity={0.2} floatIntensity={0.8}>
+      <group ref={groupRef} position={[0, 1.8, -1.5]}>
         <Center>
-          {/* Falls back gracefully if the font file isn't bundled — see README for font setup */}
           <Text3D
             font="/fonts/space-grotesk-bold.json"
-            size={0.62}
-            height={0.08}
-            curveSegments={6}
+            size={0.65}
+            height={0.16} // Deepened the extrusion for a heavy, architectural block feel
+            curveSegments={8}
             bevelEnabled
-            bevelThickness={0.012}
-            bevelSize={0.012}
-            bevelSegments={3}
+            bevelThickness={0.02}
+            bevelSize={0.02}
+            bevelSegments={4}
           >
             SURAJ KUMAR SAH
-            <meshStandardMaterial
-              color="#5CE7FF"
-              emissive="#34D2F2"
-              emissiveIntensity={0.6}
-              metalness={0.4}
-              roughness={0.25}
+            {/* Upgraded to a physical material. It uses a silver/chrome base so it catches and reflects the cyan and blue lights from the HeroScene */}
+            <meshPhysicalMaterial
+              color="#F8FAFC"
+              metalness={1}
+              roughness={0.1}
+              clearcoat={1}
+              clearcoatRoughness={0.1}
+              envMapIntensity={1.5}
             />
           </Text3D>
         </Center>

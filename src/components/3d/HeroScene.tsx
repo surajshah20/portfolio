@@ -2,8 +2,7 @@
 
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Environment, Stars } from "@react-three/drei";
-import MountainRange from "./MountainRange";
+import { Environment, Stars, Grid } from "@react-three/drei";
 import HoloName from "./HoloName";
 import TechIcons from "./TechIcons";
 
@@ -15,18 +14,36 @@ export default function HeroScene() {
       gl={{ antialias: true, powerPreference: "high-performance" }}
     >
       <color attach="background" args={["#05080F"]} />
-      <fog attach="fog" args={["#05080F", 6, 16]} />
+      <fog attach="fog" args={["#05080F", 4, 12]} />
 
-      <ambientLight intensity={0.35} />
-      <directionalLight position={[4, 5, 3]} intensity={0.8} color="#FFC477" />
-      <pointLight position={[-3, 1, 2]} intensity={1.1} color="#34D2F2" />
+      <ambientLight intensity={0.2} />
+      
+      {/* Lighting updated to match the new Cyan & Blue brand gradient */}
+      <directionalLight position={[4, 5, 3]} intensity={1.5} color="#5CE7FF" />
+      <pointLight position={[-3, 1, 2]} intensity={2} color="#3B82F6" />
 
       <Suspense fallback={null}>
         <Stars radius={40} depth={30} count={1200} factor={2} fade speed={0.4} />
-        <MountainRange />
+        
+        {/* Replaced MountainRange with an architectural tech-grid */}
+        <Grid 
+          position={[0, -1.2, 0]} 
+          args={[30, 30]} 
+          cellSize={0.5} 
+          cellThickness={1.2} 
+          cellColor="#1E3A8A" /* Deep blue for minor grid lines */
+          sectionSize={2.5} 
+          sectionThickness={1.5} 
+          sectionColor="#5CE7FF" /* Cyan for major grid lines */
+          fadeDistance={15} 
+          fadeStrength={1.5} 
+        />
+
         <HoloName />
         <TechIcons />
-        <Environment preset="night" />
+        
+        {/* Changed from 'night' to 'city' for better metallic reflections on TechIcons */}
+        <Environment preset="city" />
       </Suspense>
     </Canvas>
   );

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Download, Menu, X } from "lucide-react";
 
 const SECTIONS = [
   { id: "home", label: "Home" },
@@ -16,6 +16,7 @@ const SECTIONS = [
 export default function Navbar() {
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -40,18 +41,25 @@ export default function Navbar() {
     };
   }, []);
 
+  // Close mobile menu when a link is clicked
+  const handleMobileNavClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <>
       {/* Top nav */}
       <header
-        className={`fixed top-0 z-50 w-full transition-all ${
-          scrolled ? "bg-navy-950/80 backdrop-blur-lg border-b border-mist-100/10" : "bg-transparent"
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+          scrolled || isMobileMenuOpen ? "bg-navy-950/90 backdrop-blur-lg border-b border-mist-100/10" : "bg-transparent"
         }`}
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#home" className="font-display text-sm font-semibold tracking-wide text-mist-100">
+          <a href="#home" className="font-display text-lg sm:text-sm font-semibold tracking-wide text-mist-100 relative z-50">
             SKS<span className="text-cyan-400">.</span>
           </a>
+          
+          {/* Desktop Links */}
           <ul className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-wider">
             {SECTIONS.map((s) => (
               <li key={s.id}>
@@ -66,14 +74,67 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <a
-            href="/resume/Suraj-Kumar-Sah-Resume.pdf"
-            download
-            className="flex items-center gap-2 rounded-full border border-cyan-400/40 px-4 py-2 text-xs font-mono uppercase tracking-wider text-cyan-400 transition hover:bg-cyan-400/10"
-          >
-            <Download size={14} /> Resume
-          </a>
+
+          <div className="flex items-center gap-4 relative z-50">
+            {/* Desktop Resume Button */}
+            <a
+              href="/resume/Suraj-Kumar-Sah-Resume.pdf"
+              download
+              className="hidden sm:flex items-center gap-2 rounded-full border border-cyan-400/40 px-4 py-2 text-xs font-mono uppercase tracking-wider text-cyan-400 transition hover:bg-cyan-400/10"
+            >
+              <Download size={14} /> Resume
+            </a>
+
+            {/* Mobile Hamburger Toggle */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="flex md:hidden items-center justify-center p-2 text-mist-100 transition hover:text-cyan-400"
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </nav>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-full left-0 w-full bg-navy-950/95 backdrop-blur-xl border-b border-mist-100/10 px-6 py-8 md:hidden flex flex-col gap-6 shadow-2xl"
+            >
+              <ul className="flex flex-col gap-6 font-mono text-sm uppercase tracking-wider">
+                {SECTIONS.map((s) => (
+                  <li key={s.id}>
+                    <a
+                      href={`#${s.id}`}
+                      onClick={handleMobileNavClick}
+                      className={`block w-full transition hover:text-cyan-400 ${
+                        active === s.id ? "text-cyan-400 font-bold" : "text-mist-200"
+                      }`}
+                    >
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              
+              <div className="mt-4 pt-6 border-t border-mist-100/10">
+                <a
+                  href="/resume/Suraj-Kumar-Sah-Resume.pdf"
+                  download
+                  onClick={handleMobileNavClick}
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-cyan-400/10 border border-cyan-400/40 px-4 py-3 text-sm font-mono uppercase tracking-wider text-cyan-400 transition hover:bg-cyan-400 hover:text-navy-950"
+                >
+                  <Download size={16} /> Download Resume
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Floating side scrollspy (desktop only) */}
