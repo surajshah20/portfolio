@@ -27,9 +27,9 @@ function Laptop() {
           <meshStandardMaterial color="#080D1A" metalness={0.4} roughness={0.6} />
         </mesh>
 
-        {/* Screen Hinge */}
-        <mesh position={[0, 0, -0.55]}>
-          <cylinderGeometry args={[0.04, 0.04, 1.4, 16]} rotation={[0, 0, Math.PI / 2]} />
+       {/* Screen Hinge */}
+        <mesh position={[0, 0, -0.55]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.04, 0.04, 1.4, 16]} />
           <meshStandardMaterial color="#0A101D" metalness={0.9} roughness={0.1} />
         </mesh>
 
