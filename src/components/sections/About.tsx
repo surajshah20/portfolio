@@ -28,7 +28,7 @@ export default function About() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Details always.</span>
             </h2>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export default function About() {
           >
             {/* Note: I removed profile.summary here to avoid repeating the exact same text from the Hero section */}
             <p className="mt-6 text-mist-300 text-base sm:text-lg leading-relaxed">
-              I am a final-year BSc IT student based in Kathmandu, Nepal. I specialize in building robust backend architecture and dialing in the precise frontend details that most developers overlook. 
+              I recently completed my BSc IT exams in Kathmandu, Nepal, and am available for full-time roles. I specialize in building robust backend architecture and dialing in the precise frontend details that most developers overlook.
             </p>
             <p className="mt-4 text-mist-300 text-base sm:text-lg leading-relaxed">
               I care about secure authentication, APIs that are actually pleasant to consume, and interfaces that don't feel like off-the-shelf templates.
