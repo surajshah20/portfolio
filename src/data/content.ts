@@ -185,21 +185,21 @@ export const projects: Project[] = [
 
 export const timeline = [
   {
-    date: "April 2026 — Present",
-    title: "Frontend Developer Intern",
-    org: "Zorvyn FinTech Pvt. Ltd.",
-    description: "Developing and optimizing frontend interfaces, building scalable UI components, and collaborating on production-level web applications.",
+    date: "Jan 2023 — Present",
+    title: "Independent Frontend & Full-Stack Developer",
+    org: "Freelance / Self-Employed",
+    description: "Architected, built, and deployed 5+ production-ready web applications focusing on clean UI/UX, scalable backend systems, and rigorous QA testing.",
   },
   {
-    date: "Expected 2026",
+    date: "2023 — 2026",
     title: "BSc (Hons) Information Technology",
     org: "ISMT College, Kathmandu — University of Sunderland",
-    description: "Final-year coursework bridging software development and QA methodologies.",
+    description: "Exams completed; awaiting graduation. Bridged academic theory with practical application by building full-stack web platforms and utilizing modern QA methodologies.",
   },
   {
     date: "June 2026",
-    title: "Software Engineering Virtual Internship",
-    org: "Commonwealth Bank, via Forage",
-    description: "Simulated real-world software engineering tasks, debugging, and agile workflows.",
+    title: "Software Engineering Job Simulation",
+    org: "Forage",
+    description: "Completed practical, simulated industry tasks focusing on website creation, UI styling, financial cybersecurity, and web hosting proposals.",
   },
 ];
