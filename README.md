@@ -33,9 +33,8 @@ src/
 │
 ├── components/
 │   ├── 3d/
-│   │   ├── HeroScene.tsx      # Canvas wrapper — lights, fog, environment
-│   │   ├── MountainRange.tsx  # Procedural low-poly Himalayan ridge (pure Three.js)
-│   │   ├── HoloName.tsx       # Rotating holographic 3D name text
+│   │   ├── HeroScene.tsx      # Canvas wrapper — lights, fog, environment, grid
+│   │   ├── HoloName.tsx       # Rotating holographic 3D name text watermark
 │   │   ├── TechIcons.tsx      # Orbiting tech stack chips
 │   │   └── FloatingLaptop.tsx # Low-poly laptop for About section
 │   │
@@ -43,7 +42,7 @@ src/
 │   │   ├── Hero.tsx           # Full-screen 3D hero + overlay
 │   │   ├── About.tsx          # Bio + stats + 3D laptop
 │   │   ├── Skills.tsx         # Tabbed skill categories + animated bars
-│   │   ├── Projects.tsx       # 5-project card grid
+│   │   ├── Projects.tsx       # 6-project card grid (DevGuard AI, BlushBook, etc.)
 │   │   ├── ProjectCard.tsx    # Individual 3D-tilt card (mouse tracking)
 │   │   ├── ProjectModal.tsx   # Animated case study modal
 │   │   ├── Journey.tsx        # Education/certs timeline
