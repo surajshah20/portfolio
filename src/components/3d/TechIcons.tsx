@@ -5,14 +5,14 @@ import { useFrame } from "@react-three/fiber";
 import { Text, Float } from "@react-three/drei";
 import * as THREE from "three";
 
-// Updated to reflect the Full-Stack + QA positioning and strictly use the new brand colors
+// Reflecting core full-stack stack from CV
 const ICONS = [
   { label: "React", color: "#5CE7FF" },
   { label: "Node.js", color: "#3B82F6" },
   { label: "PostgreSQL", color: "#5CE7FF" },
-  { label: "QA / Testing", color: "#3B82F6" },
-  { label: "REST APIs", color: "#5CE7FF" },
-  { label: "TypeScript", color: "#3B82F6" },
+  { label: "Zustand", color: "#3B82F6" },
+  { label: "Gemini AI", color: "#5CE7FF" },
+  { label: "REST APIs", color: "#3B82F6" },
 ];
 
 function OrbitChip({
@@ -36,18 +36,18 @@ function OrbitChip({
     if (!ref.current) return;
     const t = state.clock.elapsedTime * speed + angle;
     ref.current.position.x = Math.cos(t) * radius;
-    ref.current.position.z = Math.sin(t) * radius - 1;
-    ref.current.position.y = yOffset + Math.sin(state.clock.elapsedTime * 0.6 + angle) * 0.15;
+    // Keep Z negative so chips orbit in the atmospheric depth layer without occluding foreground 2D text
+    ref.current.position.z = Math.sin(t) * 1.2 - 2.6;
+    ref.current.position.y = yOffset + Math.sin(state.clock.elapsedTime * 0.5 + angle) * 0.12;
   });
 
   // Pre-compute wireframe geometry to optimize performance
-  const geometry = useMemo(() => new THREE.OctahedronGeometry(0.1, 0), []);
+  const geometry = useMemo(() => new THREE.OctahedronGeometry(0.08, 0), []);
   const edges = useMemo(() => new THREE.EdgesGeometry(geometry), [geometry]);
 
   return (
     <group ref={ref}>
-      <Float speed={2.5} floatIntensity={0.3}>
-        {/* Architectural Node: Dark metal core with glowing wireframe edges */}
+      <Float speed={2} floatIntensity={0.25}>
         <mesh geometry={geometry}>
           <meshPhysicalMaterial
             color="#0A101D"
@@ -62,13 +62,12 @@ function OrbitChip({
         </lineSegments>
 
         <Text
-          position={[0, -0.25, 0]}
-          fontSize={0.12}
+          position={[0, -0.2, 0]}
+          fontSize={0.095}
           color="#EAF2F8"
           anchorX="center"
           anchorY="middle"
-          font="/fonts/jetbrains-mono-regular.woff"
-          outlineWidth={0.015}
+          outlineWidth={0.012}
           outlineColor="#05080F"
         >
           {label}
@@ -84,9 +83,9 @@ export default function TechIcons() {
       ICONS.map((icon, i) => ({
         ...icon,
         angle: (i / ICONS.length) * Math.PI * 2,
-        radius: 2.8 + (i % 2) * 0.4, // Slightly wider orbit to frame the deeper HoloName
-        speed: 0.1 + (i % 3) * 0.03, // Slightly faster, more deliberate rotation
-        yOffset: 1.2 + (i % 3) * 0.5, // Raised to align with the new grid and text placement
+        radius: 3.2 + (i % 2) * 0.4,
+        speed: 0.08 + (i % 3) * 0.02,
+        yOffset: 1.8 + (i % 3) * 0.4,
       })),
     []
   );

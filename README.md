@@ -1,6 +1,6 @@
 # Suraj Kumar Sah — Portfolio
 
-A futuristic Himalayan-themed 3D portfolio built with **Next.js 15**, **React Three Fiber**, **Framer Motion**, and **Tailwind CSS**.
+A modern 3D developer portfolio for **Suraj Kumar Sah** (Full-Stack Software Engineer), built with **Next.js 14**, **React Three Fiber**, **Framer Motion**, and **Tailwind CSS**.
 
 ---
 

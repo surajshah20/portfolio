@@ -10,33 +10,34 @@ export default function HoloName() {
 
   useFrame((state) => {
     if (!groupRef.current) return;
-    // Slightly faster, sharper sine wave to match the technical grid environment
-    groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.3) * 0.15;
+    groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.25) * 0.1;
   });
 
   return (
-    <Float speed={1.8} rotationIntensity={0.2} floatIntensity={0.8}>
-      <group ref={groupRef} position={[0, 1.8, -1.5]}>
+    <Float speed={1.5} rotationIntensity={0.15} floatIntensity={0.5}>
+      {/* Pushed further back in Z and slightly higher so it acts as an elegant backdrop without colliding with the 2D headline */}
+      <group ref={groupRef} position={[0, 2.4, -3.8]}>
         <Center>
           <Text3D
             font="/fonts/space-grotesk-bold.json"
-            size={0.65}
-            height={0.16} // Deepened the extrusion for a heavy, architectural block feel
-            curveSegments={8}
+            size={0.52}
+            height={0.1}
+            curveSegments={6}
             bevelEnabled
-            bevelThickness={0.02}
-            bevelSize={0.02}
-            bevelSegments={4}
+            bevelThickness={0.015}
+            bevelSize={0.015}
+            bevelSegments={3}
           >
             SURAJ KUMAR SAH
-            {/* Upgraded to a physical material. It uses a silver/chrome base so it catches and reflects the cyan and blue lights from the HeroScene */}
-            <meshPhysicalMaterial
-              color="#F8FAFC"
-              metalness={1}
-              roughness={0.1}
-              clearcoat={1}
-              clearcoatRoughness={0.1}
-              envMapIntensity={1.5}
+            {/* Subtle, translucent deep-slate holographic material that catches ambient cyan reflections without competing with white text */}
+            <meshStandardMaterial
+              color="#334155"
+              emissive="#5CE7FF"
+              emissiveIntensity={0.08}
+              metalness={0.8}
+              roughness={0.3}
+              transparent
+              opacity={0.32}
             />
           </Text3D>
         </Center>

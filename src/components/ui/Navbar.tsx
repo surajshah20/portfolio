@@ -22,6 +22,11 @@ export default function Navbar() {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMobileMenuOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,6 +42,7 @@ export default function Navbar() {
 
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("keydown", handleKeyDown);
       observer.disconnect();
     };
   }, []);
@@ -66,7 +72,7 @@ export default function Navbar() {
                 <a
                   href={`#${s.id}`}
                   className={`transition hover:text-cyan-400 ${
-                    active === s.id ? "text-cyan-400" : "text-mist-300"
+                    active === s.id ? "text-cyan-400 font-bold" : "text-mist-300"
                   }`}
                 >
                   {s.label}
@@ -90,6 +96,7 @@ export default function Navbar() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="flex md:hidden items-center justify-center p-2 text-mist-100 transition hover:text-cyan-400"
               aria-label="Toggle mobile menu"
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

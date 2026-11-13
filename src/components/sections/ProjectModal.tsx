@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Github, ExternalLink } from "lucide-react";
 import type { Project } from "@/data/content";
@@ -11,6 +12,25 @@ export default function ProjectModal({
   project: Project | null;
   onClose: () => void;
 }) {
+  useEffect(() => {
+    if (!project) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [project, onClose]);
+
   return (
     <AnimatePresence>
       {project && (
@@ -18,6 +38,9 @@ export default function ProjectModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="project-modal-title"
           className="fixed inset-0 z-[60] flex items-center justify-center bg-navy-950/80 backdrop-blur-md px-4 sm:px-6"
           onClick={onClose}
         >
@@ -46,7 +69,7 @@ export default function ProjectModal({
             <span className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest" style={{ color: project.accent }}>
               {project.status}
             </span>
-            <h3 className="mt-2 font-display text-3xl sm:text-4xl font-bold text-mist-100">
+            <h3 id="project-modal-title" className="mt-2 font-display text-3xl sm:text-4xl font-bold text-mist-100">
               {project.title}
             </h3>
             <p className="mt-1 font-mono text-sm text-mist-300">{project.tagline}</p>
@@ -57,7 +80,7 @@ export default function ProjectModal({
 
             <div className="mt-8">
               <h4 className="font-mono text-[11px] sm:text-xs font-bold uppercase tracking-widest text-mist-400 border-b border-mist-100/10 pb-2">
-                Key Features
+                Key Engineering Highlights
               </h4>
               <ul className="mt-4 space-y-3">
                 {project.features.map((f) => (

@@ -1,14 +1,14 @@
 export const profile = {
   name: "Suraj Kumar Sah",
-  role: "I write the code and find the edge cases.",
-  tagline: "SOFTWARE QA & FULL-STACK DEVELOPER",
-  location: "Kathmandu / Lalitpur, Nepal",
+  role: "Architecting scalable systems. Shipping real products.",
+  tagline: "FULL-STACK SOFTWARE ENGINEER",
+  location: "Kathmandu, Nepal",
   email: "suraj27227@gmail.com",
   phone: "+977 9806840056",
   github: "https://github.com/surajshah20",
   linkedin: "https://linkedin.com/in/surajshahcs",
   summary:
-    "Hey, I'm Suraj. I build full-stack web platforms with React and Node.js, and apply rigorous QA practices to ensure they never break. I care about sharp interfaces, thoughtful backend architecture, and shipping software that actually works.",
+    "Creator of BlushBook (live commercial SaaS with 30+ print orders fulfilled) and DevGuard AI (autonomous code-security agent). Specializing in React, Node.js, and PostgreSQL web platforms with strong foundations in complex canvas state and static analysis.",
 };
 
 export type SkillCategory = {
@@ -24,60 +24,59 @@ export type SkillCategory = {
 export const skills: SkillCategory[] = [
   {
     category: "Frontend",
-    color: "#FF9E5E",
-    items: [
-      { name: "React", level: 85 },
-      { name: "JavaScript (ES6+)", level: 85 },
-      { name: "HTML5 / CSS3", level: 85 },
-      { name: "Konva.js (Canvas)", level: 75 },
-      { name: "Responsive Design", level: 90 },
-    ],
-  },
-  {
-    category: "Backend",
     color: "#5CE7FF",
     items: [
-      { name: "Node.js", level: 85 },
-      { name: "Express.js", level: 85 },
-      { name: "RESTful APIs", level: 85 },
+      { name: "React", level: 90, note: "Production" },
+      { name: "Zustand", level: 85, note: "State Engine" },
+      { name: "Konva.js (HTML5 Canvas)", level: 85, note: "2D Canvas" },
+      { name: "Vite", level: 88, note: "Build Tooling" },
+      { name: "Responsive Design", level: 92, note: "Mobile-First" },
+      { name: "JavaScript (ES6+) / HTML5 / CSS3", level: 90, note: "Core Standard" },
     ],
   },
   {
-    category: "Database & Storage",
+    category: "Backend & APIs",
+    color: "#3B82F6",
+    items: [
+      { name: "Node.js", level: 88, note: "Runtime" },
+      { name: "Express.js", level: 88, note: "Framework" },
+      { name: "RESTful APIs", level: 90, note: "API Architecture" },
+      { name: "Zod", level: 85, note: "Schema Validation" },
+      { name: "Octokit (GitHub REST API)", level: 82, note: "GitHub Automation" },
+      { name: "ESLint API & AST Analysis", level: 80, note: "Static Analysis" },
+      { name: "JWT / OAuth / Passport.js / bcrypt", level: 86, note: "Auth & Security" },
+    ],
+  },
+  {
+    category: "Databases & Cloud",
     color: "#7C5CFF",
     items: [
-      { name: "PostgreSQL", level: 85 },
-      { name: "MongoDB", level: 60 },
-      { name: "Cloudinary", level: 80 },
+      { name: "PostgreSQL", level: 88, note: "Relational DB" },
+      { name: "Neon", level: 84, note: "Serverless Postgres" },
+      { name: "MongoDB", level: 75, note: "Document DB" },
+      { name: "Cloudinary", level: 85, note: "Media Pipeline" },
     ],
   },
   {
-    category: "QA & Testing",
+    category: "Testing & QA",
     color: "#FF5E5E",
     items: [
-      { name: "Manual Testing", level: 90 },
-      { name: "API Testing", level: 85 },
-      { name: "Edge-Case Identification", level: 85 },
-      { name: "Black-Box Testing", level: 80 },
+      { name: "Playwright", level: 80, note: "E2E Automation" },
+      { name: "API Testing & Postman", level: 88, note: "API Workflows" },
+      { name: "Manual & Regression Testing", level: 90, note: "QA & Verification" },
+      { name: "Black-box Testing", level: 85, note: "58+ Capstone Tests" },
+      { name: "Test Case Design", level: 85, note: "Coverage Analysis" },
     ],
   },
   {
-    category: "Authentication",
-    color: "#34D2F2",
-    items: [
-      { name: "JWT", level: 85 },
-      { name: "OAuth", level: 75 },
-      { name: "Passport.js", level: 75 },
-      { name: "bcrypt", level: 85 },
-    ],
-  },
-  {
-    category: "Deployment & Tools",
+    category: "DevOps & Tooling",
     color: "#FFC477",
     items: [
-      { name: "Git / GitHub", level: 85 },
-      { name: "Postman", level: 85 },
-      { name: "Vercel / Render", level: 80 },
+      { name: "Git & GitHub", level: 88, note: "Version Control" },
+      { name: "GitHub Actions (CI)", level: 82, note: "CI/CD Workflows" },
+      { name: "Render & Vercel", level: 86, note: "Cloud Hosting" },
+      { name: "Postman", level: 88, note: "API Design & Test" },
+      { name: "jsPDF", level: 85, note: "300 DPI Print Pipeline" },
     ],
   },
 ];
@@ -98,108 +97,145 @@ export const projects: Project[] = [
   {
     slug: "blushbook",
     title: "BlushBook",
-    tagline: "Full-Stack Photobook SaaS",
+    tagline: "Commercial Web-to-Print Photobook SaaS",
     description:
-      "A full-stack web application for creating and customizing printed photobooks, deployed fully end-to-end.",
+      "A production web-to-print SaaS enabling customers across Nepal to design, customize, and order physical photobooks, fulfilling 30+ custom print orders end-to-end.",
     status: "Live",
-    tech: ["React", "Node.js", "Express", "PostgreSQL", "Cloudinary"],
+    tech: ["React", "Node.js", "Express", "PostgreSQL", "Konva.js", "Zustand", "Cloudinary", "jsPDF"],
     features: [
-      "React-based photobook editor with photo uploads, templates, and previews",
-      "Backend REST APIs, authentication, and PostgreSQL data management",
-      "Image upload and storage pipeline integrated with Cloudinary",
-      "Debugged and resolved complex frontend state, CSS, and editor rendering logic",
+      "Architected an interactive HTML5 Konva.js canvas engine with real-time element transformation, photo pan/zoom cropping geometry, and dynamic snap-alignment guides.",
+      "Engineered a client-side print pipeline using jsPDF to compile 300 DPI production-ready PDFs with automated bleed margins and dynamic spine-width calculations.",
+      "Implemented Zustand state management with multi-step undo/redo history snapshots and automated draft recovery to prevent data loss in long design sessions.",
+      "Optimized initial template loading from ~15s to near-instant by resolving PostgreSQL cold starts through in-memory caching and pre-bundled static snapshots.",
+      "Built REST APIs with role-based access control (Admin/User), PostgreSQL data management, and Cloudinary image handling; performed functional and regression testing across auth, editor, and order workflows.",
     ],
     links: { demo: "https://getblushbook.com" },
-    accent: "#FFC477",
-  },
-  {
-    slug: "ai-solutions",
-    title: "AI-Solutions",
-    tagline: "AI Startup Platform & CMS",
-    description:
-      "A full-stack capstone project featuring a custom content management system, secure lead-generation, and an integrated AI-powered virtual assistant.",
-    status: "Completed",
-    tech: ["Node.js", "Express", "PostgreSQL", "EJS", "bcrypt"],
-    features: [
-      "Secure admin CMS with full CRUD capabilities and session authentication",
-      "Responsive EJS templates for public pages and data-driven dashboards",
-      "Robust PostgreSQL schema handling inquiries, articles, and events",
-      "Validated system reliability through 58 documented black-box test cases",
-    ],
-    links: { github: "https://github.com/surajshah20/ai-solutions" },
-    accent: "#FF9E5E",
-  },
-  {
-    slug: "primetrade",
-    title: "PrimeTrade",
-    tagline: "Trading Platform",
-    description:
-      "A full-stack trading platform with REST APIs, JWT authentication, role-based access control, and CRUD workflows.",
-    status: "Completed",
-    tech: ["React", "Node.js", "Express", "PostgreSQL"],
-    features: [
-      "Role-based access control and JWT authentication",
-      "React dashboard functionality with protected backend routes",
-      "Full CRUD workflows backed by PostgreSQL",
-    ],
-    links: { github: "https://github.com/surajshah20/primetrade-backend" },
     accent: "#5CE7FF",
+  },
+  {
+    slug: "devguard-ai",
+    title: "DevGuard AI",
+    tagline: "Autonomous Code Review & Security Analysis Agent",
+    description:
+      "Full-stack security review agent combining deterministic AST static analysis with Google Gemini LLMs to detect vulnerabilities, explain root causes, and propose automated fixes.",
+    status: "Live",
+    tech: ["Node.js", "Express", "React", "Vite", "Google Gemini API", "ESLint", "Zod", "Octokit"],
+    features: [
+      "Architected a full-stack security review agent combining deterministic AST static analysis with Google Gemini LLMs to detect vulnerabilities, explain root causes, and propose automated fixes.",
+      "Designed an in-memory repository inspection engine over the GitHub REST API that bounds file size/counts, redacts credentials (PATs, AWS keys, tokens), and mitigates prompt injection through strict data isolation.",
+      "Built a custom vulnerability detector covering OWASP Top 10 and CWEs (command injection, SQLi, eval, path traversal, weak cryptography) alongside an in-memory ESLint engine with zero disk writes.",
+      "Implemented unified git diff patch generation (.patch) so proposed fixes can be applied directly with git apply.",
+      "Shipped a dark-theme dashboard with severity distribution bars, filtering, and markdown reports, backed by 44 automated tests and a GitHub Actions CI workflow.",
+    ],
+    links: { demo: "https://devguardai-gqng.onrender.com" },
+    accent: "#38BDF8",
+  },
+  {
+    slug: "ledger",
+    title: "Ledger Dashboard",
+    tagline: "Finance & Expense Analytics Dashboard",
+    description:
+      "A responsive personal finance dashboard featuring real-time balance analytics, transaction CRUD, simulated role-based access, and centralized state management.",
+    status: "Completed",
+    tech: ["Vanilla JavaScript (ES6+)", "HTML5", "CSS3", "Chart.js"],
+    features: [
+      "Developed a responsive personal finance dashboard with balance analytics, transaction CRUD, simulated role-based access, and light/dark themes.",
+      "Engineered a lightweight reactive state store in vanilla JS with localStorage, keeping UI and data in sync without an external framework.",
+      "Integrated Chart.js for visualizing spending dynamics, cash-flow trends, and balance analytics.",
+      "Implemented simulated role-based UI toggling (Admin/Viewer) with custom themed components.",
+    ],
+    links: {
+      demo: "https://finance-dashboardui.netlify.app/",
+      github: "https://github.com/surajshah20/finance-dashboard",
+    },
+    accent: "#7C5CFF",
   },
   {
     slug: "explorehimalaya",
     title: "ExploreHimalaya",
     tagline: "Trekking Booking Platform",
     description:
-      "An end-to-end trekking booking application with destination pages, booking workflows, and payment integration.",
+      "An end-to-end trekking booking application with destination pages, interactive booking workflows, and payment integration for multi-tier packages.",
     status: "Completed",
     tech: ["React", "Node.js", "Express", "PostgreSQL"],
     features: [
-      "Destination browsing and live booking workflows",
-      "Integration of frontend, backend APIs, and database",
-      "Prepared end-to-end deployment workflows",
+      "Destination exploration and booking workflows for multi-tier trekking packages across the Himalayas.",
+      "Robust RESTful API endpoints handling itinerary selection, booking state, and payment transactions.",
+      "PostgreSQL relational database modeling routes, client bookings, and guide assignments.",
+      "Seamless client-to-server integration with responsive UI and verified deployment workflows.",
     ],
-    links: { demo: "https://explorehimalaya.vercel.app", github: "https://github.com/surajshah20/explorehimalaya" },
+    links: {
+      demo: "https://explorehimalaya.vercel.app",
+      github: "https://github.com/surajshah20/explorehimalaya",
+    },
     accent: "#34D2F2",
   },
   {
-    slug: "finance-dashboard",
-    title: "Ledger Dashboard",
-    tagline: "Interactive Finance Tracker",
+    slug: "primetrade",
+    title: "PrimeTrade",
+    tagline: "Trading Platform & Dashboard",
     description:
-      "A responsive personal finance dashboard featuring dynamic data visualization, simulated role-based access control, and centralized state management.",
+      "A trading platform backend and React dashboard with JWT authentication, role-based access control, and protected PostgreSQL-backed routes.",
     status: "Completed",
-    tech: ["JavaScript", "HTML5", "CSS3", "Chart.js"],
+    tech: ["React", "Node.js", "Express", "PostgreSQL", "JWT"],
     features: [
-      "Engineered centralized state management using Vanilla JS and localStorage",
-      "Integrated Chart.js for real-time balance trends and expense distribution",
-      "Implemented role-based UI toggling (Admin/Viewer) with custom themed components",
-      "Built a fully responsive layout with seamless dark/light mode switching",
+      "Role-based access control and JWT authentication securing trader and admin accounts.",
+      "React dashboard interface with protected backend routes and transaction logs.",
+      "Full CRUD workflows and trade order processing backed by PostgreSQL.",
     ],
     links: {
-      demo: "https://finance-dashboardui.netlify.app/",
-      github: "https://github.com/surajshah20/finance-dashboard"
+      github: "https://github.com/surajshah20/primetrade-backend",
     },
-    accent: "#7C5CFF",
-  }
+    accent: "#FF9E5E",
+  },
+  {
+    slug: "ai-solutions",
+    title: "AI-Solutions",
+    tagline: "AI Startup Platform & CMS (Capstone)",
+    description:
+      "A full-stack capstone project featuring a custom content management system, bcrypt-secured admin dashboard, and an integrated AI virtual assistant.",
+    status: "Completed",
+    tech: ["Node.js", "Express", "PostgreSQL", "EJS", "bcrypt"],
+    features: [
+      "Secure admin CMS with full CRUD capabilities, bcrypt password hashing, and session authentication.",
+      "Responsive EJS templates for public company pages, inquiry forms, and event schedules.",
+      "Integrated AI virtual assistant providing automated user support and lead triage.",
+      "Validated system reliability and edge-case resilience through 58 documented black-box test cases.",
+    ],
+    links: {
+      github: "https://github.com/surajshah20/ai-solutions",
+    },
+    accent: "#FFC477",
+  },
 ];
 
 export const timeline = [
   {
-    date: "Jan 2023 — Present",
-    title: "Independent Frontend & Full-Stack Developer",
-    org: "Freelance / Self-Employed",
-    description: "Architected, built, and deployed 5+ production-ready web applications focusing on clean UI/UX, scalable backend systems, and rigorous QA testing.",
+    date: "Jan 2026 — Present",
+    title: "Full-Stack Software Engineer — BlushBook",
+    org: "BlushBook (Commercial Web-to-Print SaaS)",
+    description:
+      "Architected and deployed a commercial web-to-print photobook SaaS fulfilling 30+ physical print orders across Nepal. Developed the HTML5 Konva.js canvas engine, jsPDF 300 DPI client-side print pipeline, and near-instant template loading through PostgreSQL cold-start optimizations.",
+  },
+  {
+    date: "2026",
+    title: "Creator & Lead Developer — DevGuard AI",
+    org: "Autonomous Security & AST Code Review Agent",
+    description:
+      "Architected a full-stack security review agent combining deterministic AST static analysis with Google Gemini LLMs to detect OWASP Top 10 vulnerabilities, redact credentials, and generate unified git .patch automated fixes.",
   },
   {
     date: "2023 — 2026",
-    title: "BSc (Hons) Information Technology",
-    org: "ISMT College, Kathmandu — University of Sunderland",
-    description: "Exams completed; awaiting graduation. Bridged academic theory with practical application by building full-stack web platforms and utilizing modern QA methodologies.",
+    title: "BSc (Hons) Computer Systems Engineering",
+    org: "ISMT College, Kathmandu (Affiliated with the University of Sunderland, UK)",
+    description:
+      "Final-year results published; official degree certificate pending convocation. Strong foundation in software architecture, static analysis, distributed systems, and REST API design.",
   },
   {
-    date: "June 2026",
-    title: "Software Engineering Job Simulation",
-    org: "Forage",
-    description: "Completed practical, simulated industry tasks focusing on website creation, UI styling, financial cybersecurity, and web hosting proposals.",
+    date: "2025 — 2026",
+    title: "Full-Stack Web & Systems Developer",
+    org: "Independent & Capstone Engineering",
+    description:
+      "Delivered production-grade platforms including ExploreHimalaya booking system, PrimeTrade trading dashboard, Ledger vanilla JS finance analytics, and the AI-Solutions capstone verified with 58 documented black-box test cases.",
   },
 ];

@@ -26,10 +26,10 @@ export default function Hero() {
       </div>
 
       {/* Soft gradient for text legibility */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/60 to-navy-950/10 lg:bg-gradient-to-r lg:from-navy-950 lg:via-navy-950/80 lg:to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/70 to-navy-950/20 lg:bg-gradient-to-r lg:from-navy-950/95 lg:via-navy-950/70 lg:to-transparent" />
 
       {/* Main Grid Container - Fully Responsive */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center pt-28 pb-16 lg:py-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 items-center pt-24 pb-12 lg:py-16">
         
         {/* Left Column: Text & CTA */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left order-2 lg:order-1">
@@ -37,7 +37,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-4 lg:mb-6"
+            className="mb-3 lg:mb-4"
           >
             <span className="font-mono text-xs sm:text-sm tracking-[0.2em] text-cyan-400 uppercase font-bold">
               {profile.tagline}
@@ -48,7 +48,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.7 }}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.18] mb-4 max-w-xl"
           >
             {profile.role}
           </motion.h1>
@@ -57,7 +57,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.7 }}
-            className="text-mist-300 text-base sm:text-lg leading-relaxed max-w-lg mb-8 lg:mb-10"
+            className="text-mist-300 text-sm sm:text-base leading-relaxed max-w-lg mb-6 lg:mb-8"
           >
             {profile.summary}
           </motion.p>
@@ -111,6 +111,8 @@ export default function Hero() {
                 src="/profile-placeholder.png" 
                 alt={profile.name}
                 fill
+                priority
+                sizes="(max-width: 640px) 280px, (max-width: 1024px) 340px, 380px"
                 className="object-cover object-center transition-transform duration-700 hover:scale-105"
               />
               

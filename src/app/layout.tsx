@@ -3,24 +3,26 @@ import "@/app/globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://surajkumarsah.dev"),
-  title: "Suraj Kumar Sah | Software QA & Full-Stack Developer",
+  title: "Suraj Kumar Sah | Full-Stack Software Engineer",
   description:
-    "Portfolio of Suraj Kumar Sah — Software QA and Full-Stack Developer based in Kathmandu, Nepal. Specializing in React, Node.js, backend architecture, and rigorous edge-case testing.",
+    "Portfolio of Suraj Kumar Sah — Full-Stack Software Engineer based in Kathmandu, Nepal. Creator of BlushBook and DevGuard AI. Specializing in React, Node.js, PostgreSQL, static analysis, and complex client-side state.",
   keywords: [
     "Suraj Kumar Sah",
-    "Software QA Internship Nepal",
-    "QA Engineer Kathmandu",
-    "Full-Stack Developer Nepal",
-    "Node.js Developer",
+    "Full-Stack Software Engineer",
     "React Developer",
-    "Software Testing",
-    "MERN Stack",
+    "Node.js Developer",
+    "PostgreSQL",
+    "Zustand",
+    "DevGuard AI",
+    "BlushBook",
+    "Kathmandu Nepal Developer",
+    "RESTful APIs",
   ],
   authors: [{ name: "Suraj Kumar Sah" }],
   openGraph: {
-    title: "Suraj Kumar Sah | Software QA & Full-Stack Developer",
+    title: "Suraj Kumar Sah | Full-Stack Software Engineer",
     description:
-      "Architecture first. Details always. Crafting secure, scalable web applications and testing them to perfection.",
+      "Full-Stack Software Engineer with hands-on experience architecting and shipping production React, Node.js, and PostgreSQL web platforms.",
     url: "https://surajkumarsah.dev",
     siteName: "Suraj Kumar Sah Portfolio",
     locale: "en_US",
@@ -28,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Suraj Kumar Sah | Software QA & Full-Stack Developer",
+    title: "Suraj Kumar Sah | Full-Stack Software Engineer",
     description:
-      "Architecture first. Details always. Crafting secure, scalable web applications and testing them to perfection.",
+      "Full-Stack Software Engineer with hands-on experience architecting and shipping production React, Node.js, and PostgreSQL web platforms.",
   },
   icons: { icon: "/favicon.ico" },
 };
@@ -50,7 +52,6 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      {/* Added antialiased and text-rendering optimizations for the heavy typography */}
       <body className="bg-navy-950 text-mist-100 antialiased selection:bg-cyan-400/30 selection:text-cyan-100 min-h-screen flex flex-col">
         {children}
       </body>

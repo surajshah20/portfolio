@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { profile } from "@/data/content";
 
 const FloatingLaptop = dynamic(() => import("@/components/3d/FloatingLaptop"), {
   ssr: false,
@@ -35,12 +34,11 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            {/* Note: I removed profile.summary here to avoid repeating the exact same text from the Hero section */}
             <p className="mt-6 text-mist-300 text-base sm:text-lg leading-relaxed">
-              I recently completed my BSc IT exams in Kathmandu, Nepal, and am available for full-time roles. I specialize in building robust backend architecture and dialing in the precise frontend details that most developers overlook.
+              I am a Full-Stack Software Engineer based in Kathmandu, Nepal, with a BSc (Hons) in Computer Systems Engineering. Creator of BlushBook, a live commercial web-to-print SaaS with 30+ print orders fulfilled, and DevGuard AI, an LLM-assisted security code-review agent.
             </p>
             <p className="mt-4 text-mist-300 text-base sm:text-lg leading-relaxed">
-              I care about secure authentication, APIs that are actually pleasant to consume, and interfaces that don't feel like off-the-shelf templates.
+              I focus on deterministic AST static analysis, complex client-side canvas state with Konva.js and Zustand, and resilient REST API design backed by PostgreSQL. Available for full-time junior software engineering roles.
             </p>
           </motion.div>
 
@@ -52,9 +50,9 @@ export default function About() {
             className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3"
           >
             {[
-              { label: "Years Building", value: "3+" },
-              { label: "Projects Shipped", value: "5" },
-              { label: "Stack Focus", value: "MERN + PG" },
+              { label: "Print Orders", value: "30+" },
+              { label: "Projects Shipped", value: "6" },
+              { label: "Core Stack", value: "React · Node · PG" },
             ].map((stat) => (
               <div key={stat.label} className="rounded-xl border border-mist-100/10 bg-navy-900/40 backdrop-blur-sm px-4 py-4 transition hover:border-cyan-400/40">
                 <div className="font-display text-2xl font-bold text-cyan-400">{stat.value}</div>
@@ -73,7 +71,6 @@ export default function About() {
           transition={{ duration: 0.7 }}
           className="order-1 h-64 sm:h-80 md:h-96 md:order-2 w-full relative -mx-4 sm:mx-0"
         >
-          {/* w-full and negative margins on mobile ensure the 3D canvas scales correctly without causing page scroll issues */}
           <FloatingLaptop />
         </motion.div>
       </div>

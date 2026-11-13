@@ -6,7 +6,7 @@ import { skills } from "@/data/content";
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState(skills[0].category);
-  const current = skills.find((s) => s.category === activeCategory)!;
+  const current = skills.find((s) => s.category === activeCategory) || skills[0];
 
   return (
     <section id="skills" className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">

@@ -6,7 +6,7 @@ import { z } from "zod";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { profile } from "@/data/content";
-import { Send } from "lucide-react";
+import { Send, AlertCircle, CheckCircle2 } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Enter your full name"),
@@ -19,6 +19,7 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -27,15 +28,25 @@ export default function Contact() {
   } = useForm<ContactFormValues>({ resolver: zodResolver(contactSchema) });
 
   async function onSubmit(values: ContactFormValues) {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
-    });
-    if (res.ok) {
-      setSubmitted(true);
-      reset();
-      setTimeout(() => setSubmitted(false), 5000);
+    setErrorMessage(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        reset();
+        setTimeout(() => setSubmitted(false), 6000);
+      } else {
+        const data = await res.json().catch(() => null);
+        setErrorMessage(
+          data?.error || "Unable to send message right now. Please email me directly."
+        );
+      }
+    } catch {
+      setErrorMessage("Network error. Please reach out directly via email.");
     }
   }
 
@@ -52,12 +63,12 @@ export default function Contact() {
           Contact
         </span>
         <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-mist-100 leading-tight">
-          Let's build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">worth shipping.</span>
+          Let&apos;s build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">worth shipping.</span>
         </h2>
         
         <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2 font-mono text-xs font-bold text-cyan-400 uppercase tracking-widest shadow-[0_0_15px_rgba(92,231,255,0.15)]">
           <div className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
-          Available for roles & freelance
+          Available for full-time junior software engineering roles
         </div>
       </motion.div>
 
@@ -70,6 +81,28 @@ export default function Contact() {
           onSubmit={handleSubmit(onSubmit)}
           className="rounded-2xl border border-mist-100/10 bg-navy-900/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl space-y-6"
         >
+          {submitted && (
+            <div className="flex items-center gap-3 rounded-xl border border-green-500/30 bg-green-500/10 p-4 text-sm text-green-300">
+              <CheckCircle2 size={18} className="shrink-0" />
+              <span>Message sent successfully! I will get back to you shortly.</span>
+            </div>
+          )}
+
+          {errorMessage && (
+            <div className="flex items-center justify-between gap-3 rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-300">
+              <div className="flex items-center gap-2">
+                <AlertCircle size={18} className="shrink-0" />
+                <span>{errorMessage}</span>
+              </div>
+              <a
+                href={`mailto:${profile.email}`}
+                className="underline hover:text-white font-mono text-xs font-bold uppercase tracking-wider shrink-0"
+              >
+                Send Email
+              </a>
+            </div>
+          )}
+
           <div>
             <label className="font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider text-mist-300">
               Name
@@ -113,7 +146,7 @@ export default function Contact() {
               {...register("message")}
               rows={4}
               className="mt-2 w-full resize-none rounded-xl border border-mist-100/10 bg-navy-950/50 px-4 py-3.5 text-sm text-mist-100 outline-none transition-all focus:border-cyan-400 focus:bg-navy-900 focus:ring-1 focus:ring-cyan-400"
-              placeholder="What are you building?"
+              placeholder="What are you building or hiring for?"
             />
             {errors.message && (
               <p className="mt-2 font-mono text-[10px] uppercase text-red-400">{errors.message.message}</p>
